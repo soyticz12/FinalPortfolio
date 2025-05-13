@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Recent Projects";
+}
+
+<div class="container mt-5">
+    <h2>🚀 Recent Projects</h2>
+    
+    <div class="row">
+        <!-- Project 1: Landayan Dental Application (Mobile App) -->
+        <div class="col-md-4 mb-4">
+            <div class="card" data-aos="fade-up">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Landayan Dental Application Mobile App">
+                <div class="card-body">
+                    <h5 class="card-title">Landayan Dental Application (Mobile)</h5>
+                    <p class="card-text">Mobile application built with React-Native and Firebase. This app allows users to book online appointments at Landayan Dental Clinic.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: Landayan Dental Application (Desktop App) -->
+        <div class="col-md-4 mb-4">
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Landayan Dental Application Desktop App">
+                <div class="card-body">
+                    <h5 class="card-title">Landayan Dental Application (Desktop)</h5>
+                    <p class="card-text">A desktop application built with WPF in .NET and Firebase. The app helps manage and view appointments made through the mobile app at the dental clinic.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: Employee Repository with DTR -->
+        <div class="col-md-4 mb-4">
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Employee Repository with DTR">
+                <div class="card-body">
+                    <h5 class="card-title">Employee Repository with DTR</h5>
+                    <p class="card-text">A work-in-progress project built with ASP.NET MVC and Supabase. This project focuses on managing employee records and tracking their daily time records (DTR).</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        AOS.init(); // Initialize AOS library
+    </script>
+}

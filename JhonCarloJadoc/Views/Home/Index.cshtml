@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Welcome | Jhon Carlo Jadoc";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h1 class="display-4">👨‍💻 Jhon Carlo Jadoc</h1>
+        <p class="lead">Aspiring Backend Developer | BSIT Student at STI College Cubao</p>
+    </div>
+
+    <hr />
+
+    <!-- About Me -->
+    <section class="my-5" data-aos="fade-right">
+        <h2>📚 About Me</h2>
+        <p>
+            I’m currently studying at <strong>STI College Cubao</strong>, pursuing BS in Information Technology. Passionate about backend development, APIs, and system design.
+        </p>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="my-5" data-aos="fade-up">
+        <h2>🛠️ My Tech Stack</h2>
+        <div class="row">
+            @{
+                var techs = new[]
+                {
+                    new { Name = "C#", Link = "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+                    new { Name = "ASP.NET Core", Link = "https://learn.microsoft.com/en-us/aspnet/core/" },
+                    new { Name = "Web API", Link = "https://learn.microsoft.com/en-us/aspnet/core/web-api/" },
+                    new { Name = "MVC", Link = "https://learn.microsoft.com/en-us/aspnet/core/mvc/" },
+                    new { Name = "OOP", Link = "https://en.wikipedia.org/wiki/Object-oriented_programming" },
+                    new { Name = "SOLID", Link = "https://en.wikipedia.org/wiki/SOLID" },
+                    new { Name = "GitHub Codespaces", Link = "https://github.com/features/codespaces" },
+                    new { Name = "Swagger", Link = "https://swagger.io/" }
+                };
+            }
+
+            @foreach (var tech in techs)
+            {
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <a href="@tech.Link" target="_blank" class="text-decoration-none">
+                        <div class="card shadow-sm h-100 text-center">
+                            <div class="card-body">
+                                <strong>@tech.Name</strong>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section class="my-5" data-aos="fade-up">
+        <h2>🧪 Featured Project: API Playground</h2>
+        <p>
+            A Postman-like API tester built with ASP.NET MVC to interact with my Web APIs using CORS and REST principles.
+        </p>
+        <div class="text-center">
+            <a href="/Home/TestApi" class="btn btn-primary btn-lg mt-3">🚀 Open API Tester</a>
+        </div>
+    </section>
+
+    <!-- What I'm Learning -->
+    <section class="my-5" data-aos="fade-up">
+        <h2>🎯 What I'm Learning</h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Microservices</h5>
+                        <p class="card-text">Exploring microservices architecture and building small, decoupled services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Docker</h5>
+                        <p class="card-text">Simulating containers using Codespaces and learning how to containerize .NET apps.</p>
+                        <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker" class="img-fluid mt-2" style="max-height: 50px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="my-5" data-aos="fade-up">
+        <h2>🎮 Hobbies</h2>
+        <p>I enjoy coding while vibing to lo-fi music and sharpening my strategic thinking through chess.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-5 text-center text-muted">
+        <p>&copy; @DateTime.Now.Year Jhon Carlo Jadoc. All rights reserved.</p>
+    </footer>
+</div>

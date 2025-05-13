@@ -1,0 +1,87 @@
+@{
+    ViewData["Title"] = "API Tester";
+}
+
+<div class="container mt-5">
+    <h2>🧪 API Tester</h2>
+    <p>Enter a URL and send a request:</p>
+
+    <div class="mb-3">
+        <label>Method</label>
+        <select id="method" class="form-control">
+            <option>GET</option>
+            <option>POST</option>
+            <option>PUT</option>
+            <option>DELETE</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>API URL</label>
+        <input type="text" id="url" class="form-control" placeholder="http://localhost:5000/api/products" />
+    </div>
+
+    <div class="mb-3">
+        <label>Request Body (JSON)</label>
+        <textarea id="requestBody" class="form-control" rows="5">{}</textarea>
+    </div>
+
+    <button id="sendRequest" class="btn btn-success">Send Request</button>
+
+    <hr />
+
+    <h5>Response:</h5>
+    <pre id="response" class="bg-light p-3 border rounded"></pre>
+</div>
+
+@section Scripts {
+<script>
+    document.getElementById("sendRequest").addEventListener("click", async () => {
+        const method = document.getElementById("method").value;
+        const url = document.getElementById("url").value;
+        const body = document.getElementById("requestBody").value;
+
+        const responseBox = document.getElementById("response");
+        responseBox.innerHTML = "<em>⏳ Sending request...</em>";
+
+        try {
+            const response = await fetch(url, {
+                method: method,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: method !== "GET" ? body : null
+            });
+
+            const statusLine = `🟢 Status: ${response.status} ${response.statusText}`;
+            const headers = [...response.headers.entries()]
+                .map(([k, v]) => `${k}: ${v}`)
+                .join('\n');
+
+            let contentType = response.headers.get("content-type");
+            let bodyText;
+
+            if (contentType && contentType.includes("application/json")) {
+                const json = await response.json();
+                bodyText = JSON.stringify(json, null, 2);
+            } else {
+                bodyText = await response.text();
+            }
+
+            responseBox.innerHTML = `
+<pre class="border rounded bg-white p-3">
+<strong>${statusLine}</strong>
+
+📦 <u>Headers</u>:
+${headers}
+
+📄 <u>Body</u>:
+${bodyText}
+</pre>
+            `;
+        } catch (err) {
+            responseBox.innerHTML = `<pre class="text-danger">❌ Error: ${err}</pre>`;
+        }
+    });
+</script>
+}
